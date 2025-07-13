@@ -1,7 +1,10 @@
 const localeSorageKey = 'rickandmorty25';
 
 class LocaleStorage {
-  constructor(public key: string = localeSorageKey) {}
+  public key = '';
+  constructor(key: string = localeSorageKey) {
+    this.key = key
+  }
 
   getLocaleStorage(): string {
     const lsValue = localStorage.getItem(this.key);
