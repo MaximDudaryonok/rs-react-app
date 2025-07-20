@@ -18,14 +18,14 @@ import { Loader } from './loader';
 describe('Loader component', () => {
   it('renders loader wrapper with correct class', () => {
     const { container } = render(<Loader />);
-    const wrapper = container.firstChild as HTMLElement;
+    const wrapper = container.firstChild;
 
     expect(wrapper).toHaveClass('loader');
   });
 
   it('renders an img with the loader source and alt text', () => {
     render(<Loader />);
-    const img = screen.getByAltText('loader') as HTMLImageElement;
+    const img = screen.getByAltText('loader');
 
     expect(img).toBeInTheDocument();
     expect(img).toHaveClass('loader_img');

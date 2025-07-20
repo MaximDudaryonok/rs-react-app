@@ -42,7 +42,7 @@ describe('Search component', () => {
       <Search onSubmitSearch={onSubmitMock} onResetSearch={onResetMock} />
     );
 
-    const input = screen.getByPlaceholderText('search...') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('search...');
     expect(getLocaleMock).toHaveBeenCalled();
     expect(input.value).toBe('initial-value');
   });
@@ -54,7 +54,7 @@ describe('Search component', () => {
       <Search onSubmitSearch={onSubmitMock} onResetSearch={onResetMock} />
     );
 
-    const input = screen.getByPlaceholderText('search...') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('search...');
     fireEvent.change(input, { target: { value: '  Rick  ' } });
 
     expect(input.value).toBe('Rick');
@@ -69,7 +69,7 @@ describe('Search component', () => {
       <Search onSubmitSearch={onSubmitMock} onResetSearch={onResetMock} />
     );
 
-    const input = screen.getByPlaceholderText('search...') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('search...');
     fireEvent.change(input, { target: { value: 'Morty' } });
 
     const searchBtn = screen.getByRole('button', { name: 'Search' });
@@ -85,7 +85,7 @@ describe('Search component', () => {
       <Search onSubmitSearch={onSubmitMock} onResetSearch={onResetMock} />
     );
 
-    const input = screen.getByPlaceholderText('search...') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('search...');
     fireEvent.change(input, { target: { value: 'Beth' } });
 
     const clearBtn = screen.getByRole('button', { name: '×' });
