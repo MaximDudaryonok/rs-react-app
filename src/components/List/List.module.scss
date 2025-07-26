@@ -4,6 +4,7 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
   gap: 25px;
+  width: 100%;
 }
 
 .card {
@@ -27,4 +28,9 @@
 .title {
   margin-top: 60px;
   color: var(--border-color);
+}
+
+li {
+ list-style: none;
+  cursor: pointer;
 }

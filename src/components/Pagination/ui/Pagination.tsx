@@ -11,11 +11,11 @@ type PaginationProps = {
 };
 
 const Pagination: React.FC<PaginationProps> = ({
-                                                 totalPage,
-                                                 currentPage,
-                                                 siblings,
-                                                 onChangePage,
-                                               }) => {
+  totalPage,
+  currentPage,
+  siblings,
+  onChangePage,
+}) => {
   const arr = getPaginationArray(totalPage, currentPage, siblings);
 
   return (
@@ -50,9 +50,7 @@ const Pagination: React.FC<PaginationProps> = ({
         className={style.arrow_right}
         disabled={currentPage === totalPage}
         onClick={() =>
-          onChangePage(
-            currentPage < totalPage ? currentPage + 1 : currentPage
-          )
+          onChangePage(currentPage < totalPage ? currentPage + 1 : currentPage)
         }
       >
         <img className={style.arrow_next_img} src={arrow} alt="Next" />
