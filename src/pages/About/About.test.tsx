@@ -23,8 +23,14 @@ describe('About Component', () => {
 
   it('renders the main title and subtitle', () => {
     renderAbout();
-    const title = screen.getByRole('heading', { level: 1, name: /rick and morty/i });
-    const subtitle = screen.getByRole('heading', { level: 3, name: /by maxim dudaryonok/i });
+    const title = screen.getByRole('heading', {
+      level: 1,
+      name: /rick and morty/i,
+    });
+    const subtitle = screen.getByRole('heading', {
+      level: 3,
+      name: /by maxim dudaryonok/i,
+    });
     expect(title).toBeInTheDocument();
     expect(title).toHaveClass(style.title);
     expect(subtitle).toBeInTheDocument();
@@ -41,7 +47,9 @@ describe('About Component', () => {
 
   it('renders the descriptive text paragraph', () => {
     renderAbout();
-    const firstText = screen.getByText(/built with react, react router, and typescript\./i);
+    const firstText = screen.getByText(
+      /built with react, react router, and typescript\./i
+    );
     expect(firstText).toBeInTheDocument();
     expect(firstText).toHaveClass(style.text);
   });

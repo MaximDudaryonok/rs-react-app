@@ -31,7 +31,6 @@ describe('Hero component', () => {
     vi.resetAllMocks();
   });
 
-
   it('renders error message when API throws', async () => {
     (getSingleHero as vi.Mock).mockRejectedValue(new Error('Fetch failed'));
     const route = `/heroes/${heroData.id}`;

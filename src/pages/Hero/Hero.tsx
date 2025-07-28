@@ -5,7 +5,7 @@ import style from './Hero.module.scss';
 import { useEffect, useState } from 'react';
 import { getSingleHero } from '../../utils/api/search-request';
 
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -16,10 +16,7 @@ const Hero = () => {
   const getData = async (id: string) => {
     setLoading(true);
     try {
-      const [data] = await Promise.all([
-        getSingleHero(id),
-        sleep(1000),
-      ]);
+      const [data] = await Promise.all([getSingleHero(id), sleep(1000)]);
 
       setHero(data);
     } catch {
@@ -32,6 +29,7 @@ const Hero = () => {
   useEffect(() => {
     const parts = locationPath.pathname.split('/');
     const id = parts[parts.length - 1];
+
     getData(id);
   }, [locationPath]);
 
@@ -60,6 +58,7 @@ const Hero = () => {
       </div>
     );
   }
+
   const { name, image, gender, species, status, location: loc } = hero;
 
   return (

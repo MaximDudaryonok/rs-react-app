@@ -23,6 +23,7 @@ interface SearchPageState {
 
 const SearchPage: () => JSX.Element = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   useNavigate();
 
   const query = searchParams.get('query') || '';

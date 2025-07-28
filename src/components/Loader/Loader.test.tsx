@@ -19,7 +19,7 @@ describe('Component Loader', () => {
     render(
       <MemoryRouter>
         <Loader />
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     const loader = screen.getByAltText('loader');
@@ -54,7 +54,7 @@ describe('Component Loader', () => {
         <Routes>
           <Route path="/" element={<SearchPage />} />
         </Routes>
-      </MemoryRouter>,
+      </MemoryRouter>
     );
 
     expect(screen.getByAltText(/loader/i)).toBeInTheDocument();
