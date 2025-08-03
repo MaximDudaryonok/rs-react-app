@@ -1,4 +1,9 @@
-import { createBrowserRouter, isRouteErrorResponse, RouterProvider, useRouteError } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  isRouteErrorResponse,
+  RouterProvider,
+  useRouteError,
+} from 'react-router-dom';
 import { Paths } from 'models/routerTypes';
 import { SearchPage, Layout, Hero, NotFound, About } from 'pages';
 import { ErrorElement } from '../../../components/ErrorBoundary/ui/ErrorElement.tsx';
