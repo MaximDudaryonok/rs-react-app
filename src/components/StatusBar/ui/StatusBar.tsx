@@ -11,14 +11,19 @@ interface Props {
   stayVisibleMs?: number;
 }
 
-function extractErrorMessage(error: FetchBaseQueryError | SerializedError | undefined): string {
+function extractErrorMessage(
+  error: FetchBaseQueryError | SerializedError | undefined
+): string {
   if (!error) return 'Unknown error';
 
   if ('data' in error) {
     const data = error.data;
+
     if (typeof data === 'string') return data;
+
     if (typeof data === 'object' && data !== null && 'message' in data) {
       const msg = (data as Record<string, unknown>).message;
+
       if (typeof msg === 'string') return msg;
     }
   }
@@ -31,12 +36,12 @@ function extractErrorMessage(error: FetchBaseQueryError | SerializedError | unde
 }
 
 export const StatusBar: React.FC<Props> = ({
-                                             isLoading,
-                                             isFetching,
-                                             error,
-                                             hasNoResults,
-                                             stayVisibleMs = 2000,
-                                           }) => {
+  isLoading,
+  isFetching,
+  error,
+  hasNoResults,
+  stayVisibleMs = 2000,
+}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

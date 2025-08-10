@@ -115,7 +115,6 @@ export const Hero = (): JSX.Element | undefined => {
           &times;
         </button>
 
-
         <StatusBarHero
           isLoading={isLoading}
           isFetching={isFetching}

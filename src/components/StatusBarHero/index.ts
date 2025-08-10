@@ -1,1 +1,1 @@
-export { StatusBarHero } from './ui/StatusBarHero.tsx'
+export { StatusBarHero } from './ui/StatusBarHero.tsx';
