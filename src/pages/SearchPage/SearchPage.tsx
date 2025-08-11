@@ -13,6 +13,8 @@ import { Favourite } from '../../components/Favourite';
 import { useSelector } from 'react-redux';
 import { getFavourites } from 'features/controlFavoriteMovies';
 import { Paths } from 'models/routerTypes.ts';
+import { StatusBar } from '../../components/StatusBar';
+import { AdminControls } from '../../shared/reset';
 
 interface SearchPageState {
   heroes: Array<HeroResponse>;
@@ -37,7 +39,7 @@ const SearchPage: () => JSX.Element = () => {
     Number(searchParams.get('page') ?? 1)
   );
   const [searchValue, setSearchValue] = useSearchQuery();
-  const { data, isLoading, error } = useGetAllHeroesQuery({
+  const { data, isLoading, isFetching, error, refetch } = useGetAllHeroesQuery({
     searchValue,
     currentPage,
   });
@@ -112,7 +114,20 @@ const SearchPage: () => JSX.Element = () => {
         />
         <ToggleButton />
       </div>
-
+      <button
+        className={style.refetchButton}
+        onClick={() => refetch()}
+        disabled={isFetching}
+      >
+        {isFetching ? 'Refreshing...' : 'Refetch Heroes'}
+      </button>
+      <AdminControls />
+      <StatusBar
+        isLoading={isLoading}
+        isFetching={isFetching}
+        error={error}
+        hasNoResults={!isLoading && !isFetching && data?.results?.length === 0}
+      />
       {isLoading ? (
         <Loader />
       ) : (
