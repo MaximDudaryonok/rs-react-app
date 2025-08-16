@@ -12,8 +12,13 @@ export const favoriteSlice = createSlice({
     addFavourite(state: FavouriteShema, action: PayloadAction<FavouriteHero>) {
       state.heroes = [...state.heroes, action.payload];
     },
-    removeFavourite(state: FavouriteShema, action: PayloadAction<FavouriteHero>) {
-      state.heroes = state.heroes.filter((heroe) => heroe.id !== action.payload.id);
+    removeFavourite(
+      state: FavouriteShema,
+      action: PayloadAction<FavouriteHero>
+    ) {
+      state.heroes = state.heroes.filter(
+        (heroe) => heroe.id !== action.payload.id
+      );
     },
     clearFavourite(state: FavouriteShema) {
       state.heroes = [];
@@ -22,4 +27,5 @@ export const favoriteSlice = createSlice({
 });
 
 export const { reducer: favoriteReducer } = favoriteSlice;
-export const { addFavourite, removeFavourite, clearFavourite } = favoriteSlice.actions;
+export const { addFavourite, removeFavourite, clearFavourite } =
+  favoriteSlice.actions;

@@ -6,7 +6,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { HeroResponse, Paths } from '@/app/src/shared/types';
 import { useTheme } from '@/app/src/_app/providers/themeProvider/hook';
-import { addFavourite, getFavourites, removeFavourite } from '@/app/src/features/controlFavoriteMovies';
+import {
+  addFavourite,
+  getFavourites,
+  removeFavourite,
+} from '@/app/src/features/controlFavoriteMovies';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/app/src/shared/hooks/useAppDispatch/useAppDispatch';
 
@@ -36,6 +40,7 @@ const List: FC<ListProps> = ({ heroes, params }) => {
       page,
       id: id.toString(),
     }).toString();
+
     router.push(`/${Paths.hero}?${query}`);
   };
 
@@ -46,7 +51,9 @@ const List: FC<ListProps> = ({ heroes, params }) => {
           <li
             data-testid={`card-${hero.id}`}
             key={hero.id}
-            className={isDarkMode ? `${style.card} ${style.card_dark}` : style.card}
+            className={
+              isDarkMode ? `${style.card} ${style.card_dark}` : style.card
+            }
             onClick={(e) => handleCardClick(e, hero.id)}
           >
             <div>
@@ -69,12 +76,16 @@ const List: FC<ListProps> = ({ heroes, params }) => {
               <input
                 type="checkbox"
                 className={style.checkbox}
-                checked={favourites?.heroes?.some((item) => hero.id === item.id)}
+                checked={favourites?.heroes?.some(
+                  (item) => hero.id === item.id
+                )}
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
                 onChange={() => {
-                  const checked = favourites.heroes.some((item) => hero.id === item.id);
+                  const checked = favourites.heroes.some(
+                    (item) => hero.id === item.id
+                  );
                   const item = {
                     id: hero.id,
                     name: hero.name,
@@ -84,7 +95,10 @@ const List: FC<ListProps> = ({ heroes, params }) => {
                     location: { name: hero.location.name },
                     image: hero.image,
                   };
-                  checked ? dispatch(removeFavourite(item)) : dispatch(addFavourite(item));
+
+                  checked
+                    ? dispatch(removeFavourite(item))
+                    : dispatch(addFavourite(item));
                 }}
               />
             </div>

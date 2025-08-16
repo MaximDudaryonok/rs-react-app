@@ -25,12 +25,17 @@ const Hero: FC<HeroProps> = (props) => {
 
   const handleCloseClick = () => {
     const query = new URLSearchParams({ search, page }).toString();
+
     router.push(`/${Paths.hero}?${query}`);
   };
 
   if (!hero) {
     return (
-      <div className={isDarkMode ? `${style.wrapper} ${style.wrapper_dark}` : style.wrapper}>
+      <div
+        className={
+          isDarkMode ? `${style.wrapper} ${style.wrapper_dark}` : style.wrapper
+        }
+      >
         <button className={style.close_btn} onClick={handleCloseClick}>
           &times;
         </button>
@@ -41,8 +46,17 @@ const Hero: FC<HeroProps> = (props) => {
 
   return (
     <>
-      <div className={isDarkMode ? `${style.wrapper} ${style.wrapper_dark}` : style.wrapper} data-testid="hero">
-        <button data-testid="close" className={style.close_btn} onClick={handleCloseClick}>
+      <div
+        className={
+          isDarkMode ? `${style.wrapper} ${style.wrapper_dark}` : style.wrapper
+        }
+        data-testid="hero"
+      >
+        <button
+          data-testid="close"
+          className={style.close_btn}
+          onClick={handleCloseClick}
+        >
           &times;
         </button>
         {hero && <HeroCard hero={hero} />}

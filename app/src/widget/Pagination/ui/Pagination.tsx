@@ -24,13 +24,13 @@ const Pagination: FC<PaginationProps> = (props) => {
   const arr = getPaginationArray(totalPage, currentPage, siblings);
 
   const onChangePage = (el?: number | string) => {
-    // const page = currentPage > 1 ? currentPage - 1 : currentPage;
-
     const page = el || currentPage;
-    // const query = new URLSearchParams({ search: ??, page: '1' }).toString();
-    // router.push(`/${Paths.hero}?${query}`);
 
-    const query = new URLSearchParams({ search: searchValue || '', page: page.toString() }).toString();
+    const query = new URLSearchParams({
+      search: searchValue || '',
+      page: page.toString(),
+    }).toString();
+
     router.push(`${Paths.hero}?${query}`);
   };
 
@@ -38,11 +38,23 @@ const Pagination: FC<PaginationProps> = (props) => {
     <div className={style.block}>
       <button
         data-testid="prevArrow"
-        className={isDarkMode ? `${style.arrow_left} ${style.arrow_left_dark}` : style.arrow_left}
+        className={
+          isDarkMode
+            ? `${style.arrow_left} ${style.arrow_left_dark}`
+            : style.arrow_left
+        }
         disabled={currentPage === 1}
-        onClick={() => onChangePage(currentPage > 1 ? currentPage - 1 : currentPage)}
+        onClick={() =>
+          onChangePage(currentPage > 1 ? currentPage - 1 : currentPage)
+        }
       >
-        <Image className={style.arrow_img} src={arrow} width="40" height="40" alt="arrow" />
+        <Image
+          className={style.arrow_img}
+          src={arrow}
+          width="40"
+          height="40"
+          alt="arrow"
+        />
       </button>
 
       {arr.map((el, i) => (
@@ -73,11 +85,23 @@ const Pagination: FC<PaginationProps> = (props) => {
 
       <button
         data-testid="next-arrow"
-        className={isDarkMode ? `${style.arrow_right} ${style.arrow_right_dark}` : style.arrow_right}
+        className={
+          isDarkMode
+            ? `${style.arrow_right} ${style.arrow_right_dark}`
+            : style.arrow_right
+        }
         disabled={currentPage === totalPage}
-        onClick={() => onChangePage(currentPage < totalPage ? currentPage + 1 : currentPage)}
+        onClick={() =>
+          onChangePage(currentPage < totalPage ? currentPage + 1 : currentPage)
+        }
       >
-        <Image className={style.arrow_next_img} src={arrow} width="40" height="40" alt="arrow" />
+        <Image
+          className={style.arrow_next_img}
+          src={arrow}
+          width="40"
+          height="40"
+          alt="arrow"
+        />
       </button>
     </div>
   );

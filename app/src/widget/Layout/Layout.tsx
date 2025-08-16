@@ -12,7 +12,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div data-testid="layout" className={isDarkMode ? `${style.page} ${style.page_dark}` : style.page}>
+    <div
+      data-testid="layout"
+      className={isDarkMode ? `${style.page} ${style.page_dark}` : style.page}
+    >
       {children}
     </div>
   );

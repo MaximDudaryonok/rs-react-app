@@ -10,6 +10,7 @@ type HeroCardProps = {
 const HeroCard: FC<HeroCardProps> = ({ hero }) => {
   const { gender, species, status, location } = hero;
   const { name: locationName } = location;
+
   return (
     <>
       <div>

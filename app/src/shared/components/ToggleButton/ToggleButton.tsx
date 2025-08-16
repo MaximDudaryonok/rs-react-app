@@ -8,8 +8,13 @@ const ToggleButton: FC = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
-    <button className={isDarkMode ? `${style.button} ${style.on}` : style.button} onClick={() => toggleTheme()}>
-      <span className={isDarkMode ? `${style.pin} ${style.pin_dark}` : style.pin}></span>
+    <button
+      className={isDarkMode ? `${style.button} ${style.on}` : style.button}
+      onClick={() => toggleTheme()}
+    >
+      <span
+        className={isDarkMode ? `${style.pin} ${style.pin_dark}` : style.pin}
+      ></span>
     </button>
   );
 };

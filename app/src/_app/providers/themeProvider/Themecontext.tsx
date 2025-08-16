@@ -20,7 +20,11 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
     setIsDarkMode(!isDarkMode);
   };
 
-  return <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
 
 export { ThemeContext, ThemeProvider };

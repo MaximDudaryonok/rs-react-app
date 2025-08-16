@@ -11,7 +11,12 @@ const Button: FC<ButtonProps> = ({ children, onClick }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <button className={isDarkMode ? `${style.button} ${style.button_dark}` : style.button} onClick={onClick}>
+    <button
+      className={
+        isDarkMode ? `${style.button} ${style.button_dark}` : style.button
+      }
+      onClick={onClick}
+    >
       {children}
     </button>
   );

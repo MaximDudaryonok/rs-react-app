@@ -10,8 +10,6 @@ import { List } from '@/app/src/widget/List';
 import { Favourite } from '@/app/src/widget/Favourite';
 import { Hero } from '@/app/src/widget/Hero/Hero';
 import { notFound, redirect } from 'next/navigation';
-import styles from '@/app/ui/styles/pages/About.module.scss';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: {
@@ -32,15 +30,16 @@ export default async function Page({
     redirect('/heroes?page=1');
   }
 
-  const searchValue = Array.isArray(search) ? search[0] : search ?? '';
-  const currentPage = Array.isArray(page) ? page[0] : page ?? 1;
-  const currentHeroId = Array.isArray(id) ? id[0] : id ?? null;
+  const searchValue = Array.isArray(search) ? search[0] : (search ?? '');
+  const currentPage = Array.isArray(page) ? page[0] : (page ?? 1);
+  const currentHeroId = Array.isArray(id) ? id[0] : (id ?? null);
 
   const data = await SearchRequest(searchValue, Number(currentPage));
 
   if (!data) {
     notFound();
   }
+
   const heroes = data?.results ? data?.results : [];
   const currentHero = heroes.find((hero) => hero.id === Number(currentHeroId));
 
@@ -58,11 +57,6 @@ export default async function Page({
               <Search initialValue={searchValue} />
               <ToggleButton />
             </div>
-            <nav className={styles.navbar}>
-              <Link href="/about" className={styles.link}>
-                About page
-              </Link>
-            </nav>
 
             <>
               <div className={style.wrapper}>
@@ -72,8 +66,12 @@ export default async function Page({
                     <Favourite />
                   </>
                 )}
-                {heroes?.length === 0 && <h2 className={style.title}>No results found</h2>}
-                {currentHero && <Hero hero={currentHero} params={propsParams} />}
+                {heroes?.length === 0 && (
+                  <h2 className={style.title}>No results found</h2>
+                )}
+                {currentHero && (
+                  <Hero hero={currentHero} params={propsParams} />
+                )}
               </div>
             </>
 
