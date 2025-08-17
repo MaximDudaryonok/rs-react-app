@@ -1,0 +1,4 @@
+{
+  "/heroes/(overview)/page": "app/heroes/(overview)/page.js",
+  "/about/(overview)/page": "app/about/(overview)/page.js"
+}

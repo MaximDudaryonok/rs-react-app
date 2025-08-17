@@ -13,7 +13,6 @@ export function AboutContent() {
 
   return (
     <div className={styles.container} data-testid="about-page">
-      {/* Language toggle button */}
       <div className={styles.langSwitcher}>
         <button onClick={toggleLang} className={styles.langButton}>
           {language === 'en' ? 'Switch to Русский' : 'Переключить на English'}

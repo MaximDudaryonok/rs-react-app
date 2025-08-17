@@ -2,7 +2,7 @@ import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: './dist',
+  distDir: './next',
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'styles')],
   },
