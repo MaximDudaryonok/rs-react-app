@@ -8,12 +8,12 @@ import type { FavouriteHero } from '@/app/src/features/controlFavoriteMovies/typ
 
 export async function downloadHeroesCsv(ids: number[]) {
   const heroesData = await Promise.all(
-    ids.map(id => getSingleHero(String(id)))
+    ids.map((id) => getSingleHero(String(id)))
   );
 
   const plain: FavouriteHero[] = heroesData
     .filter((h): h is NonNullable<typeof h> => Boolean(h))
-    .map(h => ({
+    .map((h) => ({
       id: h.id,
       name: h.name,
       status: h.status,

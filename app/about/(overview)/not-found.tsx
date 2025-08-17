@@ -1,3 +1,5 @@
+'use client';
+
 import style from '@/app/ui/styles/pages/NotFound.module.scss';
 import { useLanguage } from '@/app/src/_app/providers/languageProvider/LanguageContext';
 

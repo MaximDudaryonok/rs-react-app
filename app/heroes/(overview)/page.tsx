@@ -19,26 +19,29 @@ export const metadata: Metadata = {
   description: 'Heroes ',
 };
 
+type SearchParams = Record<string, string | string[] | undefined>;
+
 export default async function Page({
-                                     searchParams,
-                                   }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
 }) {
-  const { search, page, id } = await searchParams;
+  const { search, page, id } = (await searchParams) ?? {};
 
   if (!search && !page) {
     redirect('/heroes?page=1');
   }
 
-  const searchValue = Array.isArray(search) ? search[0] : search ?? '';
-  const currentPage = Array.isArray(page) ? page[0] : page ?? 1;
-  const currentHeroId = Array.isArray(id) ? id[0] : id ?? null;
+  const searchValue = Array.isArray(search) ? search[0] : (search ?? '');
+  const currentPage = Array.isArray(page) ? page[0] : (page ?? 1);
+  const currentHeroId = Array.isArray(id) ? id[0] : (id ?? null);
 
   const data = await SearchRequest(searchValue, Number(currentPage));
+
   if (!data) notFound();
 
   const heroes = data?.results ?? [];
-  const currentHero = heroes.find(hero => hero.id === Number(currentHeroId));
+  const currentHero = heroes.find((hero) => hero.id === Number(currentHeroId));
 
   const propsParams = { search: searchValue, page: currentPage };
 
@@ -59,7 +62,9 @@ export default async function Page({
                   <Favourite />
                 </>
               )}
-              {heroes.length === 0 && <h2 className={style.title}>No results found</h2>}
+              {heroes.length === 0 && (
+                <h2 className={style.title}>No results found</h2>
+              )}
               {currentHero && <Hero hero={currentHero} params={propsParams} />}
             </div>
 

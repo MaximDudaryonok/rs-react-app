@@ -1,0 +1,3 @@
+id,name,status,species,gender,image
+"14", "Alien Morty", "unknown", "Alien", "Male", "https://rickandmortyapi.com/api/character/avatar/14.jpeg"
+"62", "Canklanker Thom", "Dead", "Alien", "Male", "https://rickandmortyapi.com/api/character/avatar/62.jpeg"
