@@ -1,0 +1,2 @@
+id,name,status,species,gender,image
+"2", "Morty Smith", "Alive", "Human", "Male", "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
