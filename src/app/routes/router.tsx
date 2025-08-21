@@ -5,7 +5,8 @@ import { ControllForm } from 'pages/ControllForm/ControllForm';
 import { UncontrollForm } from 'pages/UncontrollForm/UncontrollForm';
 import { NotFound } from 'pages/NotFound/NotFound';
 import { ErrorPage } from 'pages/ErrorPage/ErrorPage';
-import { Path } from 'shared/types/routePaths';
+import { Path } from '../../shared/routePaths.ts';
+
 
 const router = createBrowserRouter([
   {
