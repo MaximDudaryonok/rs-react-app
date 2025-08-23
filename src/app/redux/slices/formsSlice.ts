@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ConvertedFormInputs } from '../../../shared/formTypes.ts';
+import { ConvertedFormInputs } from '../../../shared/types/formTypes.ts';
+
 
 
 export const enum Identificator {

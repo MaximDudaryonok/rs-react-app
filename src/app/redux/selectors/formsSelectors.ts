@@ -1,7 +1,8 @@
 
 import { RootState } from '../config/store';
 import { Identificator } from '../slices/formsSlice';
-import { ConvertedFormInputs } from '../../../shared/formTypes.ts';
+import { ConvertedFormInputs } from '../../../shared/types/formTypes.ts';
+
 
 export const getControllForm = (state: RootState): ConvertedFormInputs[] => {
   return state.forms.controllForm;
